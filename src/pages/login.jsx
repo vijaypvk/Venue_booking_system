@@ -1,8 +1,13 @@
 import '../styles/login.css';
-
+import { Link } from 'react-router-dom';
+import React from 'react';
+import Header from '../components/header';
 function Login() {
     return (
+        <div>
+            <Header/>
         <div className="login-container">
+                
             <div className="login-box">
  
                 <h2 className="login-title">Sign in</h2>
@@ -34,13 +39,18 @@ function Login() {
                 <button className="sign-in-btn">Sign in</button>
 
                 <div className="extra-options">
-                    <a href="#" className="create-account">Create account</a>
+              
+                {/* <a href="#" className="create-account">Create account</a> */}
+                    <Link className='create-account' to="/register">   
+                    Create account        
+                    </Link>
                 </div>
 
                 <p className="legal">
                     This site is protected by reCAPTCHA  <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
                 </p>
             </div>
+        </div>
         </div>
     );
 }

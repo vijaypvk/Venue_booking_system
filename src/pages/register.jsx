@@ -1,7 +1,9 @@
 import '../styles/register.css';
-
+import Header from '../components/header';
 function Register() {
     return (
+        <div>
+            <Header />
         <div className="register-container">
             <div className="register-box">
  
@@ -27,6 +29,7 @@ function Register() {
                 <button className="register-btn">Register</button>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
