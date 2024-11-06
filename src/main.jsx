@@ -8,13 +8,15 @@ import Register from './pages/register.jsx'
 import Header from './components/header.jsx'
 import Sidebar from './components/sidebar.jsx'
 import Dashboardhome from './pages/dashboardhome.jsx'
+import Staffpage from './pages/staffpage.jsx'
+
 
 const Layout =()=>{
   const location = useLocation();
   return(
     <div>
       {
-        location.pathname !== '/login' && location.pathname !== '/register' &&  
+        location.pathname !== '/login' && location.pathname !== '/register' &&    
         (
           <Header />
         )
@@ -45,6 +47,10 @@ const router = createBrowserRouter([{
   {
     path:'/dashboardhome',
   element: <Dashboardhome/>
+  },
+  {
+    path:'/Staffpage',
+  element: <Staffpage/>
   },
 ]
 }])

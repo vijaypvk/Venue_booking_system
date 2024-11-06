@@ -1,16 +1,11 @@
 .logo {
     width: 180px;    
 }
-
-/* .nav-container {    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header{
+    padding: 10px;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    width:100%;
-    max-width: 400px;
-} */
+body{
+    position: sticky;
+    top:0;
+}

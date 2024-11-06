@@ -1,11 +1,18 @@
 import '../styles/login.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { FaSearch } from 'react-icons/fa';
 import Header from '../components/header';
 function Login() {
     return (
         <div>
-            <Header/>
+            <header className="header shadow-sm">
+                            <div className="logo">
+                    <Link to="/">
+                        <img src="src/assets/logo.svg" alt="Logo" />
+                    </Link>
+                </div>
+    </header>
         <div className="login-container">
                 
             <div className="login-box">
@@ -35,12 +42,11 @@ function Login() {
                     </div>
                     <a href="#" className="forgot-password">Forgot password?</a>
                 </div>
-
+                <Link to="/dashboardhome">
                 <button className="sign-in-btn">Sign in</button>
-
-                <div className="extra-options">
-              
-                {/* <a href="#" className="create-account">Create account</a> */}
+                </Link>
+                <div className="extra-options">           
+                
                     <Link className='create-account' to="/register">   
                     Create account        
                     </Link>
