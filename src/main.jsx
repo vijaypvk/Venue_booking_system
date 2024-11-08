@@ -9,7 +9,11 @@ import Header from './components/header.jsx'
 import Sidebar from './components/sidebar.jsx'
 import Dashboardhome from './pages/dashboardhome.jsx'
 import Staffpage from './pages/staffpage.jsx'
-
+import Venue from './pages/venue.jsx'
+import Bookingconformation from './pages/bookingcon.jsx'
+import Addvenue1 from './pages/addvenue1.jsx'
+import BookingApproval from './components/approval.jsx'
+import Addvenue2 from './pages/addvenue2.jsx'
 
 const Layout =()=>{
   const location = useLocation();
@@ -49,9 +53,30 @@ const router = createBrowserRouter([{
   element: <Dashboardhome/>
   },
   {
-    path:'/Staffpage',
+    path:'/staffpage',
   element: <Staffpage/>
   },
+  {
+    path:'/venue',
+  element: <Venue/>
+  },
+  {
+    path:'/booking',
+  element: <Bookingconformation/>
+  },
+  {
+    path:'/addvenue1',
+  element: <Addvenue1/>
+  },
+  {
+    path:'/addvenue2',
+  element: <Addvenue2/>
+  },
+  {
+    path:'/approval',
+  element: <BookingApproval/>
+  }
+
 ]
 }])
 

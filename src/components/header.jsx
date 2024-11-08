@@ -5,7 +5,7 @@ import "../styles/header.css";
 
 function Header() {
     return (
-        <header className="header sticky top-0 shadow-md py-2 px-4 bg-white z-10">
+        <header className="sticky top-0 shadow-md py-0.5 px-2 bg-white">
             <nav className="flex items-center justify-between">
                 
                 <div className="logo">

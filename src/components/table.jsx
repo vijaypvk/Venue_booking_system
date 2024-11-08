@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Table({ }) { // Default to an empty array if products is undefined
+function Table({ }) { 
     
     const products = [
         { name: "SF seminar-hall 1", location: "Sunflower-block", date_time: "10-10-2024", capacity: "300",staff:"Arvindh" },
