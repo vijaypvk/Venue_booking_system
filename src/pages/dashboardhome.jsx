@@ -4,6 +4,7 @@ import Sidebar from "../components/sidebar";
 import { FaUser, FaMapMarkerAlt, FaClipboardCheck, FaTimesCircle } from "react-icons/fa";
 import Usage from '../components/usage';
 import Table from "../components/table";
+import { Link } from "react-router-dom";
 
 function Dashboardhome() {
     const cardData = [
@@ -16,31 +17,35 @@ function Dashboardhome() {
     return (
         <div className="dashboard flex bg-gray-100 min-h-screen">
             <Sidebar />
-            <div className="flex flex-col p-4 w-full lg:w-4/5">
-            <h2 className="text-3xl font-bold text-gray-700 mb-8">Dashboard</h2>
+            <div className="flex flex-col p-6 w-full lg:w-4/5">
+                <h2 className="text-3xl font-bold text-gray-700 mb-8">Dashboard</h2>
 
-                
+                {/* Card Section */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                     {cardData.map((card, index) => (
-                        <div key={index} className="flex items-center p-6 bg-white shadow rounded-xl">
-                            <div className="p-3 bg-gray-200 rounded-2xl text-2xl mr-4">
+                        <div key={index} className="card bg-white shadow-lg rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl p-4 flex items-center">
+                            <div className="icon-container p-4 bg-gray-200 rounded-xl text-3xl text-center mr-4 transition-transform transform hover:scale-110">
                                 {card.icon}
                             </div>
-                            <div>
-                                <h3 className="text-sm text-gray-700">{card.title}</h3>
-                                <p className="text-2xl font-bold">{card.value}</p>
+                            <div className="text-container">
+                                <h3 className="text-sm font-semibold text-gray-700">{card.title}</h3>
+                                <p className="text-xl font-bold text-gray-900">{card.value}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-               <div>
-                <h3 className="text-lg font-semibold mb-4 ">Usage details</h3>
-                <Usage />
+                {/* Usage Details Section */}
+                <div>
+                    <Link to={"/analytics"}>
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4 hover:text-indigo-600 transition-colors">Usage details</h3>
+                        <Usage />
+                    </Link>
                 </div>
 
-                <div className="py-8 ">
-                    <Table/>
+                {/* Table Section */}
+                <div className="py-8">
+                    <Table />
                 </div>
             </div>
         </div>

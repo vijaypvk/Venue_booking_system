@@ -8,19 +8,22 @@ import Header from './components/header'
 import Staffpage from './pages/staffpage'
 import Venue from './pages/venue'
 import Addvenue1 from './pages/addvenue1'
-function App() {
 
+function App() {
+    
     
   return (
     <> 
-      <Login/>
+      {/* <Login/>
       <Register/>
       <Dashboardhome/>   
       <Sidebar/>
      <Staffpage/>
      <Venue/>
      <Addvenue1/>
-     <Addvenue2/>
+     <Addvenue2/> */}
+
+     
     </>
     
   )

@@ -5,8 +5,22 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        moveRed: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(10px)" },
+        },
+      },
+    animation: {
+      "move-red": "moveRed 1.5s ease-in-out infinite",
+      
+    },
+  
   },
+  },
+  
+
   plugins: [
     require('flowbite/plugin')({
         charts: true,
@@ -14,4 +28,3 @@ export default {
     // ... other plugins
   ]
 }
-

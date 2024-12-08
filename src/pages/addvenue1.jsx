@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import Sidebar from "../components/sidebar";
 import { FaCamera } from "react-icons/fa";
-import Addvenue2 from "./addvenue2";
 import { Link } from "react-router-dom";
-function AddVenue1() {
-  // State to handle the uploaded photo
-  const [photo, setPhoto] = useState(null);
 
-  // Function to handle file upload
+function AddVenue1() {
+  const [photo, setPhoto] = useState(null);
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [location, setLocation] = useState("");
+  const [capacity, setCapacity] = useState("");
+  const [projector, setProjector] = useState("");
+  const [ac, setAc] = useState("");
+  const [micAndSpeaker, setMicAndSpeaker] = useState("");
+
   const handlePhotoUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -20,12 +25,8 @@ function AddVenue1() {
       <Sidebar />
       <div className="flex flex-col p-8 w-full lg:w-4/5">
         <h2 className="text-4xl font-bold text-gray-700 mb-8">Add Venue</h2>
-
-        {/* Card Container */}
         <div className="p-10 bg-white border border-gray-200 rounded-3xl shadow-2xl">
-          {/* Upload Photo Section */}
           <div className="flex flex-col items-center mb-10">
-            {/* Display the uploaded photo if available */}
             {photo ? (
               <img
                 src={photo}
@@ -37,7 +38,6 @@ function AddVenue1() {
                 <FaCamera className="text-blue-600 text-4xl" />
               </button>
             )}
-            {/* Upload Photo Button */}
             <label className="text-blue-600 font-semibold cursor-pointer hover:text-blue-500 transition-colors duration-200">
               Upload Photo
               <input
@@ -49,69 +49,84 @@ function AddVenue1() {
             </label>
           </div>
 
-          {/* Form Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left Column */}
             <div>
               <label className="block text-gray-600 font-medium mb-2">Name</label>
               <input
                 type="text"
                 placeholder="Enter venue name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
               />
             </div>
-
             <div>
               <label className="block text-gray-600 font-medium mb-2">Type</label>
-              <select className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200">
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
+              >
                 <option>--</option>
                 <option>Seminar Hall</option>
                 <option>Conference Room</option>
                 <option>Auditorium</option>
               </select>
             </div>
-
-            {/* Right Column */}
             <div>
               <label className="block text-gray-600 font-medium mb-2">Location</label>
-              <select className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200">
+              <select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
+              >
                 <option>--</option>
                 <option>Sunflower Block</option>
                 <option>Daisy Block</option>
                 <option>Rosewood Block</option>
               </select>
             </div>
-
             <div>
               <label className="block text-gray-600 font-medium mb-2">Capacity</label>
               <input
                 type="number"
                 placeholder="Enter capacity"
+                value={capacity}
+                onChange={(e) => setCapacity(e.target.value)}
                 className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
               />
             </div>
-
             <div>
               <label className="block text-gray-600 font-medium mb-2">Projector</label>
-              <select className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200">
+              <select
+                value={projector}
+                onChange={(e) => setProjector(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
+              >
                 <option>--</option>
                 <option>Yes</option>
                 <option>No</option>
               </select>
             </div>
-
             <div>
               <label className="block text-gray-600 font-medium mb-2">AC</label>
-              <select className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200">
+              <select
+                value={ac}
+                onChange={(e) => setAc(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
+              >
                 <option>--</option>
                 <option>Yes</option>
                 <option>No</option>
               </select>
             </div>
-
             <div>
               <label className="block text-gray-600 font-medium mb-2">MIC and Speaker</label>
-              <select className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200">
+              <select
+                value={micAndSpeaker}
+                onChange={(e) => setMicAndSpeaker(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 bg-gray-100 focus:bg-white focus:border-blue-400 transition-all duration-200"
+              >
                 <option>--</option>
                 <option>Yes</option>
                 <option>No</option>
@@ -119,17 +134,28 @@ function AddVenue1() {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="flex justify-end mt-10 space-x-4">
             <Link to={"/venue"}>
-            <button className="bg-gray-300 text-gray-700 py-3 px-6 rounded-xl hover:bg-gray-400 transition-all duration-200">
-              Back
-            </button>
+              <button className="bg-gray-300 text-gray-700 py-3 px-6 rounded-xl hover:bg-gray-400 transition-all duration-200">
+                Back
+              </button>
             </Link>
-            <Link to={"/addvenue2"}>
-            <button  className="bg-blue-600 text-white py-3 px-6 rounded-xl hover:bg-blue-700 shadow-lg transition-all duration-200">
-              Next
-            </button>
+            <Link
+              to="/addvenue2"
+              state={{
+                photo,
+                name,
+                type,
+                location,
+                capacity,
+                projector,
+                ac,
+                micAndSpeaker,
+              }}
+            >
+              <button className="bg-blue-600 text-white py-3 px-6 rounded-xl hover:bg-blue-700 shadow-lg transition-all duration-200">
+                Next
+              </button>
             </Link>
           </div>
         </div>

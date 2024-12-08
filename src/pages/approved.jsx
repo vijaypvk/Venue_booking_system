@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "../components/sidebar";
 import { FaSearch } from "react-icons/fa";
+import BookingApproval from "../components/approval";
 
-function History() {
+function Approved() {
   const products = [
     { name: "SF seminar-hall 1", location: "Sunflower-block", date_time: "10-10-2024", capacity: "300", staff: "Arvindh" },
     { name: "SF seminar-hall 2", location: "Sunflower-block", date_time: "12-10-2024", capacity: "200", staff: "Vijay" },
@@ -18,8 +19,15 @@ function History() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [selectedItems, setSelectedItems] = useState([]);
 
-  // Filtering the products based on search query
+  const handleRowClick = (booking) => {
+    if (booking) {
+      setSelectedBooking(booking);
+      setIsModalOpen(true);
+    }
+  };
+
   const filteredProducts = products.filter((product) => {
     return (
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -29,24 +37,12 @@ function History() {
     );
   });
 
-  const handleRowClick = (booking) => {
-    if (booking) {
-      setSelectedBooking(booking);
-      setIsModalOpen(true);
-    }
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedBooking(null);
-  };
-
   return (
     <div className="dashboard flex bg-gray-100 min-h-screen">
       <Sidebar />
       <div className="flex flex-col p-4 w-full lg:w-4/5">
-        <h2 className="text-3xl font-bold text-gray-700 mb-8">History</h2>
-        
+        <h2 className="text-3xl font-bold text-gray-700 mb-8">Approved</h2>
+
         <div className="flex justify-start p-4">
           <div className="flex items-center w-full max-w-md bg-white rounded-full shadow-sm px-10 py-1">
             <FaSearch className="text-gray-400 mr-3 text-xl" />
@@ -88,8 +84,8 @@ function History() {
                     <td className="px-6 py-4">{product.capacity}</td>
                     <td className="px-6 py-4">{product.staff}</td>
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center bg-red-400 text-gray-900 text-xs font-medium px-2 py-1 rounded">
-                        Rejected..
+                      <span className="inline-flex items-center bg-green-400 text-gray-900 text-xs font-medium px-2 py-1 rounded">
+                        Approved..
                       </span>
                     </td>
                   </tr>
@@ -109,25 +105,4 @@ function History() {
   );
 }
 
-export default History;
-
-
-
-// import React from "react";
-// import Typed from "react-typed";
-
-// const TypedTitle = () => {
-//   return (
-//     <h1 className="text-3xl font-bold text-center mt-8">
-//       We construct your dream{" "}
-//       <Typed
-//         strings={["house", "office", "hospital"]}
-//         typeSpeed={50} // Speed of typing
-//         backSpeed={30} // Speed of deleting
-//         loop // Repeat the animation
-//       />
-//     </h1>
-//   );
-// };
-
-// export default TypedTitle;
+export default Approved;

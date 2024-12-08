@@ -1,8 +1,6 @@
 import '../styles/login.css';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
-import Header from '../components/header';
 function Login() {
     return (
         <div>
@@ -62,4 +60,3 @@ function Login() {
 }
 
 export default Login;
-
